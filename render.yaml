@@ -5,5 +5,8 @@ services:
     plan: free
     buildCommand: corepack pnpm install --frozen-lockfile && corepack pnpm build
     startCommand: corepack pnpm start
+    envVars:
+      - key: NODE_VERSION
+        value: 24.15.0
     healthCheckPath: /api/health
     autoDeploy: true
