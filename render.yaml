@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: test-impact-demo
+    runtime: node
+    plan: free
+    buildCommand: corepack pnpm install --frozen-lockfile && corepack pnpm build
+    startCommand: corepack pnpm start
+    healthCheckPath: /api/health
+    autoDeploy: true

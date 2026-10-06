@@ -13,6 +13,7 @@
     "dev:frontend": "vite --config apps/frontend/vite.config.ts apps/frontend",
     "dev:demo": "vite --config apps/demo/vite.config.ts apps/demo",
     "dev:demo-api": "node --import tsx apps/demo/server.ts",
+    "start": "node apps/demo/dist-server/server.js",
     "build": "pnpm typecheck && pnpm graph:generate && node scripts/build.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

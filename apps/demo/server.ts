@@ -1,5 +1,5 @@
 import { createHash, randomBytes, randomUUID } from 'node:crypto';
-import { readFileSync } from 'node:fs';
+import { createReadStream, existsSync, readFileSync, statSync } from 'node:fs';
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
 import { resolve } from 'node:path';
 import { analyzeSourceEdits, type ImpactGraph, type TestMetadata } from '@test-impact/impact-engine';
@@ -92,7 +92,9 @@ function isAuthorized(request: IncomingMessage): boolean {
   if (!origin) return true;
   try {
     const url = new URL(origin);
-    return url.protocol === 'http:' && ['127.0.0.1', 'localhost'].includes(url.hostname);
+    const host = request.headers.host?.split(':')[0];
+    return (url.protocol === 'http:' || url.protocol === 'https:')
+      && (['127.0.0.1', 'localhost'].includes(url.hostname) || url.hostname === host);
   } catch {
     return false;
   }
@@ -111,7 +113,21 @@ type Executor = typeof executeTests;
 export function createDemoApi(executor: Executor = executeTests) {
   const analyses = new Map<string, { analysis: DemoAnalysis; edits: DemoAnalysisRequest['edits'] }>();
   const executions = new Map<string, DemoExecution>();
+  const staticRoot = resolve(root, 'apps/demo/dist');
+  const contentTypes: Record<string, string> = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.woff2': 'font/woff2' };
   return createServer(async (request, response) => {
+    if (request.method === 'GET' && request.url && !request.url.startsWith('/api/')) {
+      const requested = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
+      const relative = requested === '/' ? 'index.html' : requested.slice(1);
+      const candidate = resolve(staticRoot, relative);
+      const file = existsSync(candidate) && statSync(candidate).isFile() ? candidate : resolve(staticRoot, 'index.html');
+      if (existsSync(file)) {
+        const extension = file.match(/\.[^.]+$/)?.[0] ?? '';
+        response.writeHead(200, { 'Content-Type': contentTypes[extension] ?? 'application/octet-stream', 'Cache-Control': requested === '/' ? 'no-cache' : 'public, max-age=31536000, immutable' });
+        createReadStream(file).pipe(response);
+        return;
+      }
+    }
     if (request.method === 'GET' && request.url === '/api/health') return json(response, 200, { status: 'ok', snapshotId });
     if (request.method === 'GET' && request.url === '/api/snapshot') return json(response, 200, snapshot);
     const protectedRoute = (request.method === 'POST' && ['/api/analyses', '/api/executions'].includes(request.url ?? ''))
@@ -165,7 +181,7 @@ export function createDemoApi(executor: Executor = executeTests) {
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === resolve(new URL(import.meta.url).pathname)) {
-  const port = Number(process.env.DEMO_API_PORT ?? 3002);
+  const port = Number(process.env.PORT ?? process.env.DEMO_API_PORT ?? 3002);
   if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Invalid DEMO_API_PORT');
-  createDemoApi().listen(port, '127.0.0.1', () => console.log(`Demo API: http://127.0.0.1:${port}`));
+  createDemoApi().listen(port, process.env.PORT ? '0.0.0.0' : '127.0.0.1', () => console.log(`Demo server listening on ${port}`));
 }
