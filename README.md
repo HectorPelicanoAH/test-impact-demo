@@ -1,4 +1,4 @@
-# Test Impact Lab
+# Test Impact Demo
 
 A real login application and deterministic test-impact engine in a TypeScript monorepo. **Phase 6 complete:** the audited explorer guides a real source edit through deterministic impact analysis, c[...]
 
