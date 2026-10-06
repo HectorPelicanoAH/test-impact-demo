@@ -1,5 +1,13 @@
 # Test Impact Demo
 
+## Demo pública estática
+
+Este repositorio incluye una versión autónoma para GitHub Pages. No necesita Node, pnpm, API ni backend: abre `index.html` y simula el análisis de impacto en el navegador.
+
+La ejecución de tests es deliberadamente simulada. Cada test afectado recibe una duración aleatoria entre **350 ms y 1.450 ms**, un rango suficientemente plausible para una demo visual. No se ejecuta Vitest, Playwright ni código del proyecto.
+
+Al hacer push a `main`, `.github/workflows/pages.yml` publica el repositorio mediante GitHub Pages. En la configuración del repositorio hay que seleccionar **Settings → Pages → GitHub Actions** como fuente de publicación.
+
 A real login application and deterministic test-impact engine in a TypeScript monorepo. **Phase 6 complete:** the audited explorer guides a real source edit through deterministic impact analysis, c[...]
 
 ## Run

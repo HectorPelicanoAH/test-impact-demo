@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Demo visual de análisis de impacto de tests" />
+    <title>Test Impact Lab · Demo</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">TEST IMPACT LAB</p>
+          <h1>Regression testing,<br /><span>sin esperar horas.</span></h1>
+          <p class="lede">Explora qué tests se ejecutarían después de cambiar una pieza del sistema. Esta versión pública simula la ejecución para que puedas probar la experiencia sin backend.</p>
+        </div>
+        <div class="badge"><span class="dot"></span> Public demo</div>
+      </header>
+
+      <section class="panel controls">
+        <div class="section-title"><span class="step">01</span><div><h2>Selecciona un cambio</h2><p>El motor calcula el alcance a partir de dependencias conocidas.</p></div></div>
+        <div id="change-list" class="change-list"></div>
+      </section>
+
+      <section class="dashboard">
+        <div class="panel summary">
+          <div class="section-title"><span class="step">02</span><div><h2>Impacto calculado</h2><p id="impact-copy">Selecciona una entidad para comenzar.</p></div></div>
+          <div class="metrics"><div><strong id="selected-count">0</strong><span>tests seleccionados</span></div><div><strong id="estimated-time">—</strong><span>tiempo estimado</span></div><div><strong id="risk-level">—</strong><span>nivel de riesgo</span></div></div>
+          <div class="bar"><span id="coverage-bar"></span></div><div class="bar-label"><span>Cobertura del catálogo</span><span id="coverage-label">0%</span></div>
+          <button id="run-button" class="primary" disabled>Ejecutar simulación <span>→</span></button>
+          <p class="notice">ⓘ Los resultados son simulados. No se ejecuta ningún test real ni se modifica código.</p>
+        </div>
+        <div class="panel graph"><div class="section-title"><span class="step">03</span><div><h2>Mapa de dependencias</h2><p>Vista simplificada del recorrido del cambio.</p></div></div><div id="graph-view" class="graph-view"></div></div>
+      </section>
+
+      <section class="panel results"><div class="results-head"><div class="section-title"><span class="step">04</span><div><h2>Resultados de ejecución</h2><p id="result-copy">Todavía no se ha ejecutado la simulación.</p></div></div><span id="run-status" class="status idle">LISTO</span></div><div id="test-results" class="test-results"><div class="empty">Selecciona un cambio y pulsa “Ejecutar simulación”.</div></div></section>
+      <footer><span>Test Impact Lab</span><span>Demo estática · GitHub Pages ready</span></footer>
+    </main>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
