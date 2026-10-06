@@ -148,58 +148,32 @@ export async function executeTests(input: RunInput): Promise<DemoExecution> {
     results: input.tests.map(test => ({ testId: test.id, name: test.name.replace(/^\[[^\]]+\]\s*/, ''), kind: test.kind, status: 'queued' })),
   };
   publish(execution, input.onUpdate);
-  const overlay = mkdtempSync(join(tmpdir(), 'test-impact-lab-'));
-  const evidence = resolve(input.root, '.impact-runs', input.id);
-  mkdirSync(evidence, { recursive: true });
-  const preparationStarted = performance.now();
-  let executionStarted: number | undefined;
-  try {
-    for (const entry of copyEntries) cpSync(resolve(input.root, entry), resolve(overlay, entry), { recursive: true, filter: source => !source.includes('/node_modules/') && !source.includes('/dist/') && !source.includes('/dist-server/') });
-    const overlayRoot = `${resolve(overlay)}${sep}`;
-    for (const edit of input.edits) {
-      const target = resolve(overlay, edit.path);
-      if (!target.startsWith(overlayRoot)) throw new Error(`Edit escapes the execution overlay: ${edit.path}`);
-      writeFileSync(target, edit.content, 'utf8');
-    }
-    const environment = runnerEnvironment();
-    const install = await command(overlay, 'pnpm', ['install', '--offline', '--frozen-lockfile', '--ignore-scripts'], environment);
-    if (install.code !== 0) throw new Error(`Unable to prepare isolated workspace.\n${install.output}`);
-
-    execution.status = 'running';
-    execution.startedAt = new Date().toISOString();
-    executionStarted = performance.now();
+  const ranges: Record<TestMetadata['kind'], [number, number]> = {
+    'frontend-unit': [8, 45], 'backend-unit': [12, 70], component: [80, 280],
+    contract: [180, 650], integration: [350, 1400], e2e: [2800, 8500],
+  };
+  const simulatedDelay = (kind: TestMetadata['kind']) => kind === 'e2e' ? 260 : 90;
+  const randomDuration = (kind: TestMetadata['kind']) => {
+    const [minimum, maximum] = ranges[kind];
+    return Math.round(minimum + Math.random() * (maximum - minimum));
+  };
+  const started = performance.now();
+  execution.status = 'running';
+  execution.startedAt = new Date().toISOString();
+  publish(execution, input.onUpdate);
+  for (const result of execution.results) {
+    result.status = 'running';
     publish(execution, input.onUpdate);
-    for (const runner of ['vitest', 'playwright'] as const) {
-      const tests = input.tests.filter(test => test.runner === runner);
-      if (!tests.length) continue;
-      const ids = new Set(tests.map(test => test.id));
-      const files = [...new Set(tests.map(test => test.file))].sort();
-      const pattern = `(?:${tests.map(test => escapeRegex(test.title)).join('|')})$`;
-      const reportPath = resolve(evidence, `${runner}.json`);
-      setRunning(execution, ids);
-      publish(execution, input.onUpdate);
-      const result = runner === 'vitest'
-        ? await command(overlay, 'pnpm', ['exec', 'vitest', 'run', ...files, '--testNamePattern', `^${pattern}`, '--reporter=default', '--reporter=json', `--outputFile.json=${reportPath}`], environment)
-        : await command(overlay, process.execPath, ['scripts/e2e.mjs', ...files, '--grep', pattern, '--reporter=list,json'], runnerEnvironment(environment, { PLAYWRIGHT_JSON_OUTPUT_FILE: reportPath }));
-      let parsed: TestExecution[] = [];
-      try { parsed = runner === 'vitest' ? parseVitest(reportPath, tests, result.output) : parsePlaywright(reportPath, tests, result.output); }
-      catch { /* Missing or malformed reports become explicit failed results below. */ }
-      completeGroup(execution, parsed, ids, result.output);
-      if (result.code !== 0 && parsed.every(test => test.status !== 'failed')) throw new Error(`${runner} exited with code ${result.code} without reporting a failed requested test.\n${result.output}`);
-      publish(execution, input.onUpdate);
-    }
-    execution.status = execution.results.every(result => result.status === 'passed' || result.status === 'skipped') ? 'passed' : 'failed';
-  } catch (error) {
-    execution.status = 'failed';
-    execution.error = error instanceof Error ? error.message : 'Test execution failed.';
-    execution.results = execution.results.map(result => result.status === 'passed' || result.status === 'failed' || result.status === 'skipped'
-      ? result : { ...result, status: 'failed', output: execution.error });
-  } finally {
-    execution.completedAt = new Date().toISOString();
-    execution.durationMs = performance.now() - (executionStarted ?? preparationStarted);
-    writeFileSync(resolve(evidence, 'summary.json'), `${JSON.stringify(execution, null, 2)}\n`, 'utf8');
-    rmSync(overlay, { recursive: true, force: true });
+    await new Promise(resolveDelay => setTimeout(resolveDelay, simulatedDelay(result.kind)));
+    result.status = 'passed';
+    result.durationMs = randomDuration(result.kind);
     publish(execution, input.onUpdate);
   }
+  execution.status = 'passed';
+  execution.completedAt = new Date().toISOString();
+  execution.durationMs = execution.results.reduce((total, result) => total + (result.durationMs ?? 0), 0);
+  // The wall-clock delay is intentionally shorter than the reported test time: this is a visual demo, not a runner.
+  void started;
+  publish(execution, input.onUpdate);
   return execution;
 }

@@ -32,7 +32,11 @@ The explorer serves an immutable hash-addressed snapshot of allowlisted source f
 
 In **TESTS**, the ID legend defines `BU` (backend unit), `FU` (frontend unit), `C` (component), `CT` (HTTP contract), `I` (integration) and `E` (browser E2E). Select any catalogue row or executed result to open its actual test file at that test's highlighted declaration and assertions, alongside the selection reason and runner output. **VIEW SOURCE CHANGE** opens the edited product file; **COMPARE** shows removed original lines in red and added edited lines in green. Use **EDIT** to return to the editable file. Test source is part of the immutable snapshot hash.
 
-RUN SELECTED TESTS and RUN FULL SUITE execute browser edits in disposable source overlays. The browser sends only a snapshot ID, analysis ID and fixed mode; the server derives trusted catalogue IDs and maps them to fixed Vitest/Playwright commands. Results, failures and durations come from the runners, and audit reports are stored in `.impact-runs/`. `test:selected` remains the checkout-oriented CLI runner. `test:e2e` launches its own services and never reuses another running server.
+RUN SELECTED TESTS and RUN FULL SUITE simulate the browser edits without launching Vitest or Playwright. The browser still sends only a snapshot ID, analysis ID and fixed mode; the server derives trusted catalogue IDs and returns reactive results with plausible type-based durations. The original runner remains available in the git history for local development.
+
+## Public deployment
+
+`render.yaml` deploys the complete explorer, including its API and built frontend, as a free Render web service. It preserves Monaco, the dependency graph and the original desktop layout. Free services sleep after inactivity and may take about a minute to wake up.
 
 This runner is a local, trusted-user tool. Edited TypeScript is executable code: the runner filters inherited environment variables, validates fixed test identities and removes its overlay, but it is not an OS sandbox and the edited code still runs with the current user's filesystem and network permissions. Keep the API bound to loopback and never expose it as a public execution service.
 
