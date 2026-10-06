@@ -1,5 +1,11 @@
-const MIN_MS = 350;
-const MAX_MS = 1450;
+const RANGES = {
+  'Frontend unit': [8, 45],
+  'Backend unit': [12, 70],
+  Component: [80, 280],
+  Contract: [180, 650],
+  'HTTP integration': [350, 1400],
+  'Browser E2E': [2800, 8500],
+};
 const tests = [
   { id: 'FU-01', name: 'normalizeEmail trims whitespace', type: 'Frontend unit', tags: ['normalizeEmail', 'LoginForm'] },
   { id: 'C-04', name: 'LoginForm renders validation error', type: 'Component', tags: ['LoginForm', 'POST /login'] },
@@ -20,10 +26,11 @@ let selected = null;
 const $ = (id) => document.getElementById(id);
 const changeList = $('change-list');
 changes.forEach((change, i) => { const button = document.createElement('button'); button.className = 'change-card'; button.innerHTML = `<span class="change-icon">${i === 3 ? '↔' : i === 2 ? '◇' : i === 1 ? 'ƒ' : '◉'}</span><span><b>${change.label}</b><small>${change.file}</small></span><span class="chevron">→</span>`; button.onclick = () => selectChange(change, button); changeList.append(button); });
-function selectChange(change, button) { selected = change; document.querySelectorAll('.change-card').forEach((el) => el.classList.remove('selected')); button.classList.add('selected'); const impacted = impactedTests(); $('selected-count').textContent = impacted.length; $('estimated-time').textContent = formatTime(impacted.reduce((sum) => sum + 700, 0)); $('risk-level').textContent = change.risk; $('coverage-label').textContent = `${Math.round(impacted.length / tests.length * 100)}%`; $('coverage-bar').style.width = `${impacted.length / tests.length * 100}%`; $('impact-copy').textContent = `${impacted.length} de ${tests.length} tests están conectados con este cambio.`; $('run-button').disabled = false; renderGraph(); renderResults(impacted, false); }
+function selectChange(change, button) { selected = change; document.querySelectorAll('.change-card').forEach((el) => el.classList.remove('selected')); button.classList.add('selected'); const impacted = impactedTests(); $('selected-count').textContent = impacted.length; $('estimated-time').textContent = formatTime(impacted.reduce((sum, test) => sum + averageRange(test.type), 0)); $('risk-level').textContent = change.risk; $('coverage-label').textContent = `${Math.round(impacted.length / tests.length * 100)}%`; $('coverage-bar').style.width = `${impacted.length / tests.length * 100}%`; $('impact-copy').textContent = `${impacted.length} de ${tests.length} tests están conectados con este cambio.`; $('run-button').disabled = false; renderGraph(); renderResults(impacted, false); }
 function impactedTests() { return tests.filter((test) => test.tags.some((tag) => selected?.tags.includes(tag))); }
 function formatTime(ms) { return ms < 1000 ? `${ms} ms` : `${(ms / 1000).toFixed(1)} s`; }
+function averageRange(type) { const [min, max] = RANGES[type]; return Math.round((min + max) / 2); }
 function renderGraph() { const path = selected?.id === 'POST /login' ? ['Cambio', 'Contrato', 'Backend', 'Frontend', 'E2E'] : ['Cambio', 'Módulo', 'Componentes', 'E2E']; $('graph-view').innerHTML = path.map((node, i) => `<div class="node ${i === 0 ? 'active' : ''}"><span>${i + 1}</span>${node}</div>`).join('<div class="connector">→</div>'); }
 function renderResults(items, finished) { $('test-results').innerHTML = items.map((test) => `<div class="test-row"><span class="test-state ${finished ? 'pass' : 'pending'}">${finished ? '✓' : '·'}</span><span class="test-name"><b>${test.name}</b><small>${test.id} · ${test.type}</small></span><span class="test-duration">${finished ? formatTime(test.duration) : 'pendiente'}</span></div>`).join(''); }
-$('run-button').onclick = async () => { if (!selected) return; const items = impactedTests(); $('run-button').disabled = true; $('run-status').textContent = 'EJECUTANDO'; $('run-status').className = 'status running'; $('result-copy').textContent = 'Simulando la ejecución de los tests afectados…'; items.forEach((test) => { test.duration = Math.floor(MIN_MS + Math.random() * (MAX_MS - MIN_MS + 1)); }); renderResults(items, true); await new Promise((resolve) => setTimeout(resolve, 500)); $('run-status').textContent = 'COMPLETADO'; $('run-status').className = 'status complete'; $('result-copy').textContent = `${items.length} tests simulados correctamente. Duraciones generadas entre ${MIN_MS} y ${MAX_MS} ms.`; $('run-button').disabled = false; };
+$('run-button').onclick = async () => { if (!selected) return; const items = impactedTests(); $('run-button').disabled = true; $('run-status').textContent = 'EJECUTANDO'; $('run-status').className = 'status running'; $('result-copy').textContent = 'Simulando la ejecución de los tests afectados…'; items.forEach((test) => { const [min, max] = RANGES[test.type]; test.duration = Math.floor(min + Math.random() * (max - min + 1)); }); renderResults(items, true); await new Promise((resolve) => setTimeout(resolve, 500)); $('run-status').textContent = 'COMPLETADO'; $('run-status').className = 'status complete'; $('result-copy').textContent = `${items.length} tests simulados correctamente. Duraciones estimadas según su tipo: unitarios 8–70 ms, componentes 80–280 ms, contratos 180–650 ms, integración 350–1.400 ms y E2E 2,8–8,5 s.`; $('run-button').disabled = false; };
 renderGraph();
