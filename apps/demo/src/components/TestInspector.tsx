@@ -43,7 +43,7 @@ export function TestInspector({ test, snapshot, analysis, execution, onShowChang
       <div><b>WHY IT {selected ? 'WAS SELECTED' : analysis ? 'WAS AVOIDED' : 'IS IN THE CATALOGUE'}</b><span>{reason?.reason ?? excluded?.explanation ?? 'Run an impact analysis to see whether this test is needed.'}</span></div>
       <div><b>RUN RESULT</b><span className={result?.status === 'failed' ? 'failure-text' : result?.status === 'passed' ? 'success-text' : ''}>{result ? `${result.status.toUpperCase()}${result.durationMs === undefined ? '' : ` · ${Math.round(result.durationMs)} ms`}` : selected ? 'Not run yet' : analysis ? 'Not run in selected mode' : 'Not run yet'}</span></div>
     </div>
-    {result?.output && <details className="test-failure" open={result.status === 'failed'}><summary>RUNNER OUTPUT</summary><pre>{result.output}</pre></details>}
+    {result?.output && result.status === 'failed' && <details className="test-failure" open><summary>RUNNER OUTPUT</summary><pre>{result.output}</pre></details>}
     <div className="test-source-path">{test.file} · lines {location?.startLine ?? '?'}–{location?.endLine ?? '?'}</div>
     <div className="test-source-editor">{source ? <Editor key={test.id} path={test.file} language="typescript" theme="vs-dark" value={source.content}
       onMount={(editor, monaco) => {
