@@ -158,17 +158,19 @@ export async function executeTests(input: RunInput): Promise<DemoExecution> {
     execution.startedAt = new Date().toISOString();
     execution.status = 'running';
     publish(execution, input.onUpdate);
-    const measuredTotal = recorded.results.reduce((total, result) => total + result.durationMs, 0) || 1;
+    const measuredTotal = recorded.results.reduce((total, result) => total + (result.durationMs ?? 0), 0) || 1;
     let measuredElapsed = 0;
     for (let index = 0; index < execution.results.length; index += 1) {
       const result = execution.results[index]!;
+      const recordedResult = recorded.results[index];
+      if (!recordedResult) throw new Error('Recorded execution results are out of sync.');
       result.status = 'running';
       publish(execution, input.onUpdate);
-      measuredElapsed += recorded.results[index]!.durationMs;
+      measuredElapsed += recordedResult.durationMs ?? 0;
       const targetElapsed = recorded.waitVisibleMs * (measuredElapsed / measuredTotal);
       const remaining = targetElapsed - (performance.now() - started);
       if (remaining > 0) await new Promise(resolveDelay => setTimeout(resolveDelay, remaining));
-      result.status = recorded.results[index]!.status;
+      result.status = recordedResult.status;
       publish(execution, input.onUpdate);
     }
     const finalElapsed = recorded.waitVisibleMs - (performance.now() - started);
