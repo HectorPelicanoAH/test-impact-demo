@@ -9,8 +9,8 @@ import { TestInspector, TestLegend } from './components/TestInspector';
 import { applySuggestion, suggestions } from './suggestions';
 import type { DemoAnalysis, DemoAnalysisRequest, DemoExecution, DemoExecutionRequest, DemoSnapshot, ExecutionMode } from './types';
 
-type View = 'application' | 'code' | 'graph' | 'tests';
-const viewLabels: Record<View, string> = { application: 'APPLICATION', code: 'CODE', graph: 'IMPACT GRAPH', tests: 'TESTS' };
+type View = 'code' | 'graph' | 'tests';
+const viewLabels: Record<View, string> = { code: 'CODE', graph: 'IMPACT GRAPH', tests: 'TESTS' };
 const kindLabels: Record<TestKind, string> = { e2e: 'E2E', component: 'COMPONENT', 'frontend-unit': 'FRONTEND UNIT', contract: 'CONTRACT', integration: 'INTEGRATION', 'backend-unit': 'BACKEND UNIT' };
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
@@ -99,7 +99,6 @@ export function App() {
       setAnalysis(result);
       setExecutions({});
       setFocusTest(result.result.selectedTests[0]);
-      setView('graph');
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'Unable to calculate regression.');
     } finally {
@@ -165,11 +164,6 @@ export function App() {
     </section>
 
     <main className="workspace">
-      {view === 'application' && <section className="application-view">
-        <div className="view-intro"><span>LIVE APPLICATION</span><h1>The same login journey represented by the code, graph and tests.</h1><p>Try an invalid password, then sign in with the public demo credentials.</p></div>
-        <div className="browser-frame"><div className="browser-chrome"><i /><i /><i /><span>{import.meta.env.VITE_APPLICATION_URL ?? 'http://127.0.0.1:5173'}</span></div><iframe title="Login application" src={import.meta.env.VITE_APPLICATION_URL ?? 'http://127.0.0.1:5173'} /></div>
-      </section>}
-
       {view === 'code' && <section className="code-view">
         <RepositoryTree files={snapshot.files} selected={selectedPath} modified={modified} onSelect={path => { setSelectedPath(path); setEditorMode(modified.has(path) ? 'diff' : 'edit'); }} />
         <div className="editor-panel panel"><div className="editor-header"><span>{selectedPath}</span><div>{modified.has(selectedPath) && <b>MODIFIED</b>}<button className={editorMode === 'edit' ? 'active' : ''} onClick={() => setEditorMode('edit')}>EDIT</button><button className={editorMode === 'diff' ? 'active' : ''} disabled={!modified.has(selectedPath)} onClick={() => setEditorMode('diff')}>COMPARE</button></div></div>
