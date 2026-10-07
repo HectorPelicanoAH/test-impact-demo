@@ -5,6 +5,7 @@ import { join, resolve, sep } from 'node:path';
 import { performance } from 'node:perf_hooks';
 import type { TestMetadata } from '@test-impact/impact-engine';
 import type { DemoExecution, ExecutionMode, TestExecution } from './src/types';
+import { findRecordedExecution } from './recordings';
 
 export interface RunInput {
   id: string;
@@ -148,6 +149,37 @@ export async function executeTests(input: RunInput): Promise<DemoExecution> {
     results: input.tests.map(test => ({ testId: test.id, name: test.name.replace(/^\[[^\]]+\]\s*/, ''), kind: test.kind, status: 'queued' })),
   };
   publish(execution, input.onUpdate);
+  const baseline = Object.fromEntries(input.edits.map(edit => [edit.path, readFileSync(resolve(input.root, edit.path), 'utf8')]));
+  const recorded = findRecordedExecution(input.edits, input.mode, baseline);
+  if (recorded && recorded.results.map(result => result.testId).join('|') === input.tests.map(test => test.id).join('|')) {
+    execution.recordedJourney = recorded.title;
+    execution.results = recorded.results.map(result => ({ ...result, status: 'queued' }));
+    const started = performance.now();
+    execution.startedAt = new Date().toISOString();
+    execution.status = 'running';
+    publish(execution, input.onUpdate);
+    const measuredTotal = recorded.results.reduce((total, result) => total + result.durationMs, 0) || 1;
+    let measuredElapsed = 0;
+    for (let index = 0; index < execution.results.length; index += 1) {
+      const result = execution.results[index]!;
+      result.status = 'running';
+      publish(execution, input.onUpdate);
+      measuredElapsed += recorded.results[index]!.durationMs;
+      const targetElapsed = recorded.waitVisibleMs * (measuredElapsed / measuredTotal);
+      const remaining = targetElapsed - (performance.now() - started);
+      if (remaining > 0) await new Promise(resolveDelay => setTimeout(resolveDelay, remaining));
+      result.status = recorded.results[index]!.status;
+      publish(execution, input.onUpdate);
+    }
+    const finalElapsed = recorded.waitVisibleMs - (performance.now() - started);
+    if (finalElapsed > 0) await new Promise(resolveDelay => setTimeout(resolveDelay, finalElapsed));
+    execution.status = recorded.results.some(result => result.status === 'failed') ? 'failed' : 'passed';
+    execution.completedAt = new Date().toISOString();
+    execution.durationMs = recorded.runnerDurationMs;
+    execution.elapsedMs = recorded.waitVisibleMs;
+    publish(execution, input.onUpdate);
+    return execution;
+  }
   const ranges: Record<TestMetadata['kind'], [number, number]> = {
     'frontend-unit': [8, 45], 'backend-unit': [12, 70], component: [80, 280],
     contract: [180, 650], integration: [350, 1400], e2e: [2800, 8500],

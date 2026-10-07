@@ -16,7 +16,8 @@ function RunCard({ execution, onInspect }: { execution: DemoExecution; onInspect
   const passed = execution.results.filter(result => result.status === 'passed').length;
   const failed = execution.results.filter(result => result.status === 'failed').length;
   return <article className={`run-card ${execution.status}`}>
-    <header><div><span>{execution.mode === 'selected' ? 'SELECTED RUN' : 'FULL SUITE'}</span><strong>{execution.status.toUpperCase()}</strong></div><b>{duration(execution.durationMs)}</b></header>
+    <header><div><span>{execution.recordedJourney ? `RECORDED · ${execution.recordedJourney.toUpperCase()}` : execution.mode === 'selected' ? 'SELECTED RUN' : 'FULL SUITE'}</span><strong>{execution.status.toUpperCase()}</strong></div><b>{duration(execution.durationMs)}</b></header>
+    {execution.elapsedMs !== undefined && <div className="recorded-wait">VISIBLE WAIT <b>{duration(execution.elapsedMs)}</b></div>}
     <div className="run-totals"><span><b>{passed}</b> passed</span><span><b>{failed}</b> failed</span><span><b>{execution.results.length}</b> tests</span></div>
     {execution.error && <pre>{execution.error}</pre>}
     <div className="run-results">{execution.results.map(result => <div className={result.status} key={result.testId}>

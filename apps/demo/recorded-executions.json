@@ -1,0 +1,1182 @@
+{
+  "schemaVersion": 1,
+  "sourceDocument": "docs/DEMO-JOURNEY-RESULTS-2026-10-07.md",
+  "capturedAt": "2026-10-07T07:01:35.022Z",
+  "journeys": {
+    "ui": {
+      "title": "Change LoginButton",
+      "runs": {
+        "selected": {
+          "runnerDurationMs": 53300,
+          "waitVisibleMs": 60500,
+          "results": [
+            {
+              "testId": "C1",
+              "status": "failed",
+              "durationMs": 81.1,
+              "output": "TestingLibraryElementError: Unable to find an accessible element with the role \"button\" and name \"Sign in\"\n\nHere are the accessible roles:\n\n  button:\n\n  Name \"Continue\":\n  <button\n    aria-busy=\"false\"\n    type=\"submit\"\n  />\n\n  --------------------------------------------------\n\nIgnored nodes: comments, script, style\n<body>\n  <div>\n    <button\n      aria-busy=\"false\"\n      type=\"submit\"\n    >\n      Continue\n    </button>\n  </div>\n</body>\n    at Object.getElementError (<overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19)\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n    at <overlay>/apps/frontend/src/components/LoginButton.test.tsx:10:17\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)"
+            },
+            {
+              "testId": "C2",
+              "status": "failed",
+              "durationMs": 5.1,
+              "output": "TestingLibraryElementError: Unable to find an accessible element with the role \"button\" and name \"Sign in\"\n\nHere are the accessible roles:\n\n  button:\n\n  Name \"Continue\":\n  <button\n    aria-busy=\"false\"\n    disabled=\"\"\n    type=\"submit\"\n  />\n\n  --------------------------------------------------\n\nIgnored nodes: comments, script, style\n<body>\n  <div>\n    <button\n      aria-busy=\"false\"\n      disabled=\"\"\n      type=\"submit\"\n    >\n      Continue\n    </button>\n  </div>\n</body>\n    at Object.getElementError (<overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19)\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n    at <overlay>/apps/frontend/src/components/LoginButton.test.tsx:16:17\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)"
+            },
+            {
+              "testId": "C3",
+              "status": "passed",
+              "durationMs": 4.3
+            },
+            {
+              "testId": "E1",
+              "status": "failed",
+              "durationMs": 30188,
+              "output": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByRole('alert')\nExpected: \"Invalid email or password.\"\nReceived: \"Failed to execute 'json' on 'Response': Unexpected end of JSON input\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveText\" getByRole('alert') with timeout 5000ms\n  - waiting for getByRole('alert')\n    14 × locator resolved to <p role=\"alert\">Failed to execute 'json' on 'Response': Unexpecte…</p>\n       - unexpected value \"Failed to execute 'json' on 'Response': Unexpected end of JSON input\"\n\n\n   6 |   await page.getByLabel('Password').fill('wrong');\n   7 |   await page.getByRole('button', { name: 'Sign in' }).click();\n>  8 |   await expect(page.getByRole('alert')).toHaveText('Invalid email or password.');\n     |                                         ^\n   9 |   await expect(page).toHaveURL('/');\n  10 |   await page.getByLabel('Password').fill('impact-demo');\n  11 |   await page.getByRole('button', { name: 'Sign in' }).click();\n    at <overlay>/tests/e2e/login.spec.ts:8:41"
+            }
+          ]
+        },
+        "full": {
+          "runnerDurationMs": 51700,
+          "waitVisibleMs": 57500,
+          "results": [
+            {
+              "testId": "BU1",
+              "status": "passed",
+              "durationMs": 89.4
+            },
+            {
+              "testId": "BU10",
+              "status": "passed",
+              "durationMs": 1.7
+            },
+            {
+              "testId": "BU11",
+              "status": "passed",
+              "durationMs": 1.5
+            },
+            {
+              "testId": "BU12",
+              "status": "passed",
+              "durationMs": 0.3
+            },
+            {
+              "testId": "BU13",
+              "status": "passed",
+              "durationMs": 99.6
+            },
+            {
+              "testId": "BU14",
+              "status": "passed",
+              "durationMs": 85.9
+            },
+            {
+              "testId": "BU15",
+              "status": "passed",
+              "durationMs": 40.5
+            },
+            {
+              "testId": "BU16",
+              "status": "passed",
+              "durationMs": 45.2
+            },
+            {
+              "testId": "BU17",
+              "status": "passed",
+              "durationMs": 87.8
+            },
+            {
+              "testId": "BU2",
+              "status": "passed",
+              "durationMs": 87.4
+            },
+            {
+              "testId": "BU3",
+              "status": "passed",
+              "durationMs": 44
+            },
+            {
+              "testId": "BU4",
+              "status": "passed",
+              "durationMs": 43.5
+            },
+            {
+              "testId": "BU5",
+              "status": "passed",
+              "durationMs": 38.5
+            },
+            {
+              "testId": "BU6",
+              "status": "passed",
+              "durationMs": 104
+            },
+            {
+              "testId": "BU7",
+              "status": "passed",
+              "durationMs": 0.2
+            },
+            {
+              "testId": "BU8",
+              "status": "passed",
+              "durationMs": 39
+            },
+            {
+              "testId": "BU9",
+              "status": "passed",
+              "durationMs": 1
+            },
+            {
+              "testId": "C1",
+              "status": "failed",
+              "durationMs": 76.2,
+              "output": "TestingLibraryElementError: Unable to find an accessible element with the role \"button\" and name \"Sign in\"\n\nHere are the accessible roles:\n\n  button:\n\n  Name \"Continue\":\n  <button\n    aria-busy=\"false\"\n    type=\"submit\"\n  />\n\n  --------------------------------------------------\n\nIgnored nodes: comments, script, style\n<body>\n  <div>\n    <button\n      aria-busy=\"false\"\n      type=\"submit\"\n    >\n      Continue\n    </button>\n  </div>\n</body>\n    at Object.getElementError (<overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19)\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n    at <overlay>/apps/frontend/src/components/LoginButton.test.tsx:10:17\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)"
+            },
+            {
+              "testId": "C2",
+              "status": "failed",
+              "durationMs": 5.6,
+              "output": "TestingLibraryElementError: Unable to find an accessible element with the role \"button\" and name \"Sign in\"\n\nHere are the accessible roles:\n\n  button:\n\n  Name \"Continue\":\n  <button\n    aria-busy=\"false\"\n    disabled=\"\"\n    type=\"submit\"\n  />\n\n  --------------------------------------------------\n\nIgnored nodes: comments, script, style\n<body>\n  <div>\n    <button\n      aria-busy=\"false\"\n      disabled=\"\"\n      type=\"submit\"\n    >\n      Continue\n    </button>\n  </div>\n</body>\n    at Object.getElementError (<overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19)\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n    at <overlay>/apps/frontend/src/components/LoginButton.test.tsx:16:17\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)"
+            },
+            {
+              "testId": "C3",
+              "status": "passed",
+              "durationMs": 4.1
+            },
+            {
+              "testId": "C4",
+              "status": "failed",
+              "durationMs": 174.2,
+              "output": "AssertionError: expected { email: 'Demo@EXAMPLE.COM', …(1) } to deeply equal { email: 'demo@example.com', …(1) }\n    at <overlay>/apps/frontend/src/components/LoginForm.test.tsx:29:63\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "C5",
+              "status": "failed",
+              "durationMs": 44.7,
+              "output": "TestingLibraryElementError: Unable to find an accessible element with the role \"button\" and name \"Sign in\"\n\nHere are the accessible roles:\n\n  form:\n\n  Name \"Sign in\":\n  <form\n    aria-label=\"Sign in\"\n    novalidate=\"\"\n  />\n\n  --------------------------------------------------\n  textbox:\n\n  Name \"Email\":\n  <input\n    aria-invalid=\"false\"\n    autocomplete=\"username\"\n    maxlength=\"254\"\n    name=\"email\"\n    required=\"\"\n    type=\"email\"\n  />\n\n  --------------------------------------------------\n  button:\n\n  Name \"Continue\":\n  <button\n    aria-busy=\"false\"\n    type=\"submit\"\n  />\n\n  --------------------------------------------------\n\nIgnored nodes: comments, script, style\n<body>\n  <div>\n    <form\n      aria-label=\"Sign in\"\n      novalidate=\"\"\n    >\n      <label>\n        Email\n        <input\n          aria-invalid=\"false\"\n          autocomplete=\"username\"\n          maxlength=\"254\"\n          name=\"email\"\n          required=\"\"\n          type=\"email\"\n        />\n      </label>\n      <label>\n        Password\n        <input\n          aria-invalid=\"false\"\n          autocomplete=\"current-password\"\n          maxlength=\"256\"\n          name=\"password\"\n          required=\"\"\n          type=\"password\"\n        />\n      </label>\n      <button\n        aria-busy=\"false\"\n        type=\"submit\"\n      >\n        Continue\n      </button>\n    </form>\n  </div>\n</body>\n    at Object.getElementError (<overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19)\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n    at <overlay>/apps/frontend/src/components/LoginForm.test.tsx:37:27\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "C6",
+              "status": "failed",
+              "durationMs": 6.8,
+              "output": "TestingLibraryElementError: Unable to find an accessible element with the role \"button\" and name \"Sign in\"\n\nHere are the accessible roles:\n\n  form:\n\n  Name \"Sign in\":\n  <form\n    aria-label=\"Sign in\"\n    novalidate=\"\"\n  />\n\n  --------------------------------------------------\n  textbox:\n\n  Name \"Email\":\n  <input\n    aria-invalid=\"false\"\n    autocomplete=\"username\"\n    maxlength=\"254\"\n    name=\"email\"\n    required=\"\"\n    type=\"email\"\n  />\n\n  --------------------------------------------------\n  button:\n\n  Name \"Continue\":\n  <button\n    aria-busy=\"false\"\n    type=\"submit\"\n  />\n\n  --------------------------------------------------\n\nIgnored nodes: comments, script, style\n<body>\n  <div>\n    <form\n      aria-label=\"Sign in\"\n      novalidate=\"\"\n    >\n      <label>\n        Email\n        <input\n          aria-invalid=\"false\"\n          autocomplete=\"username\"\n          maxlength=\"254\"\n          name=\"email\"\n          required=\"\"\n          type=\"email\"\n        />\n      </label>\n      <label>\n        Password\n        <input\n          aria-invalid=\"false\"\n          autocomplete=\"current-password\"\n          maxlength=\"256\"\n          name=\"password\"\n          required=\"\"\n          type=\"password\"\n        />\n      </label>\n      <button\n        aria-busy=\"false\"\n        type=\"submit\"\n      >\n        Continue\n      </button>\n    </form>\n  </div>\n</body>\n    at Object.getElementError (<overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19)\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n    at <overlay>/apps/frontend/src/components/LoginForm.test.tsx:46:32\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)"
+            },
+            {
+              "testId": "C7",
+              "status": "failed",
+              "durationMs": 54.6,
+              "output": "TestingLibraryElementError: Unable to find an accessible element with the role \"button\" and name \"Sign in\"\n\nHere are the accessible roles:\n\n  form:\n\n  Name \"Sign in\":\n  <form\n    aria-label=\"Sign in\"\n    novalidate=\"\"\n  />\n\n  --------------------------------------------------\n  textbox:\n\n  Name \"Email\":\n  <input\n    aria-invalid=\"false\"\n    autocomplete=\"username\"\n    maxlength=\"254\"\n    name=\"email\"\n    required=\"\"\n    type=\"email\"\n  />\n\n  --------------------------------------------------\n  button:\n\n  Name \"Continue\":\n  <button\n    aria-busy=\"false\"\n    type=\"submit\"\n  />\n\n  --------------------------------------------------\n\nIgnored nodes: comments, script, style\n<body>\n  <div>\n    <form\n      aria-label=\"Sign in\"\n      novalidate=\"\"\n    >\n      <label>\n        Email\n        <input\n          aria-invalid=\"false\"\n          autocomplete=\"username\"\n          maxlength=\"254\"\n          name=\"email\"\n          required=\"\"\n          type=\"email\"\n        />\n      </label>\n      <label>\n        Password\n        <input\n          aria-invalid=\"false\"\n          autocomplete=\"current-password\"\n          maxlength=\"256\"\n          name=\"password\"\n          required=\"\"\n          type=\"password\"\n        />\n      </label>\n      <button\n        aria-busy=\"false\"\n        type=\"submit\"\n      >\n        Continue\n      </button>\n    </form>\n  </div>\n</body>\n    at Object.getElementError (<overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19)\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n    at <overlay>/apps/frontend/src/components/LoginForm.test.tsx:58:27\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "C8",
+              "status": "failed",
+              "durationMs": 69.8,
+              "output": "TestingLibraryElementError: Unable to find an accessible element with the role \"button\" and name \"Sign in\"\n\nHere are the accessible roles:\n\n  form:\n\n  Name \"Sign in\":\n  <form\n    aria-label=\"Sign in\"\n    novalidate=\"\"\n  />\n\n  --------------------------------------------------\n  textbox:\n\n  Name \"Email\":\n  <input\n    aria-invalid=\"false\"\n    autocomplete=\"username\"\n    maxlength=\"254\"\n    name=\"email\"\n    required=\"\"\n    type=\"email\"\n  />\n\n  --------------------------------------------------\n  button:\n\n  Name \"Continue\":\n  <button\n    aria-busy=\"false\"\n    type=\"submit\"\n  />\n\n  --------------------------------------------------\n\nIgnored nodes: comments, script, style\n<body>\n  <div>\n    <form\n      aria-label=\"Sign in\"\n      novalidate=\"\"\n    >\n      <label>\n        Email\n        <input\n          aria-invalid=\"false\"\n          autocomplete=\"username\"\n          maxlength=\"254\"\n          name=\"email\"\n          required=\"\"\n          type=\"email\"\n        />\n      </label>\n      <label>\n        Password\n        <input\n          aria-invalid=\"false\"\n          autocomplete=\"current-password\"\n          maxlength=\"256\"\n          name=\"password\"\n          required=\"\"\n          type=\"password\"\n        />\n      </label>\n      <button\n        aria-busy=\"false\"\n        type=\"submit\"\n      >\n        Continue\n      </button>\n    </form>\n  </div>\n</body>\n    at Object.getElementError (<overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19)\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17\n    at <overlay>/node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19\n    at <overlay>/apps/frontend/src/components/LoginForm.test.tsx:74:27\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "CT1",
+              "status": "passed",
+              "durationMs": 63.2
+            },
+            {
+              "testId": "CT2",
+              "status": "passed",
+              "durationMs": 44.7
+            },
+            {
+              "testId": "CT3",
+              "status": "passed",
+              "durationMs": 3.5
+            },
+            {
+              "testId": "E1",
+              "status": "failed",
+              "durationMs": 30188,
+              "output": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByRole('alert')\nExpected: \"Invalid email or password.\"\nReceived: \"Failed to execute 'json' on 'Response': Unexpected end of JSON input\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveText\" getByRole('alert') with timeout 5000ms\n  - waiting for getByRole('alert')\n    14 × locator resolved to <p role=\"alert\">Failed to execute 'json' on 'Response': Unexpecte…</p>\n       - unexpected value \"Failed to execute 'json' on 'Response': Unexpected end of JSON input\"\n\n\n   6 |   await page.getByLabel('Password').fill('wrong');\n   7 |   await page.getByRole('button', { name: 'Sign in' }).click();\n>  8 |   await expect(page.getByRole('alert')).toHaveText('Invalid email or password.');\n     |                                         ^\n   9 |   await expect(page).toHaveURL('/');\n  10 |   await page.getByLabel('Password').fill('impact-demo');\n  11 |   await page.getByRole('button', { name: 'Sign in' }).click();\n    at <overlay>/tests/e2e/login.spec.ts:8:41"
+            },
+            {
+              "testId": "FU1",
+              "status": "passed",
+              "durationMs": 1.2
+            },
+            {
+              "testId": "FU2",
+              "status": "passed",
+              "durationMs": 1.4
+            },
+            {
+              "testId": "FU3",
+              "status": "passed",
+              "durationMs": 1.7
+            },
+            {
+              "testId": "FU4",
+              "status": "passed",
+              "durationMs": 41
+            },
+            {
+              "testId": "I1",
+              "status": "passed",
+              "durationMs": 65.1
+            },
+            {
+              "testId": "I2",
+              "status": "passed",
+              "durationMs": 40.5
+            },
+            {
+              "testId": "I3",
+              "status": "passed",
+              "durationMs": 3.1
+            },
+            {
+              "testId": "I4",
+              "status": "passed",
+              "durationMs": 2.3
+            },
+            {
+              "testId": "I5",
+              "status": "passed",
+              "durationMs": 4.3
+            },
+            {
+              "testId": "I6",
+              "status": "passed",
+              "durationMs": 6.3
+            }
+          ]
+        }
+      }
+    },
+    "frontend": {
+      "title": "Change login normalization",
+      "runs": {
+        "selected": {
+          "runnerDurationMs": 21400,
+          "waitVisibleMs": 26700,
+          "results": [
+            {
+              "testId": "C4",
+              "status": "failed",
+              "durationMs": 187.8,
+              "output": "AssertionError: expected { email: 'Demo@EXAMPLE.COM', …(1) } to deeply equal { email: 'demo@example.com', …(1) }\n    at <overlay>/apps/frontend/src/components/LoginForm.test.tsx:29:63\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "C5",
+              "status": "passed",
+              "durationMs": 48.8
+            },
+            {
+              "testId": "C7",
+              "status": "passed",
+              "durationMs": 72.2
+            },
+            {
+              "testId": "C8",
+              "status": "passed",
+              "durationMs": 81.8
+            },
+            {
+              "testId": "CT1",
+              "status": "passed",
+              "durationMs": 55.1
+            },
+            {
+              "testId": "CT2",
+              "status": "passed",
+              "durationMs": 39
+            },
+            {
+              "testId": "CT3",
+              "status": "passed",
+              "durationMs": 3.2
+            },
+            {
+              "testId": "E1",
+              "status": "passed",
+              "durationMs": 820
+            },
+            {
+              "testId": "FU1",
+              "status": "failed",
+              "durationMs": 5.3,
+              "output": "AssertionError: expected 'Demo@EXAMPLE.COM' to be 'demo@example.com' // Object.is equality\n    at <overlay>/apps/frontend/src/auth/normalizeEmail.test.ts:5:49\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3301:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3259:10)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3882:64"
+            },
+            {
+              "testId": "FU2",
+              "status": "failed",
+              "durationMs": 5.4,
+              "output": "AssertionError: expected { email: 'Demo@EXAMPLE.COM', …(1) } to deeply equal { email: 'demo@example.com', …(1) }\n    at <overlay>/apps/frontend/src/auth/buildLoginRequest.test.ts:5:68\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3301:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3259:10)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3882:64"
+            },
+            {
+              "testId": "FU4",
+              "status": "passed",
+              "durationMs": 34.6
+            }
+          ]
+        },
+        "full": {
+          "runnerDurationMs": 22000,
+          "waitVisibleMs": 27500,
+          "results": [
+            {
+              "testId": "BU1",
+              "status": "passed",
+              "durationMs": 91.9
+            },
+            {
+              "testId": "BU10",
+              "status": "passed",
+              "durationMs": 1.3
+            },
+            {
+              "testId": "BU11",
+              "status": "passed",
+              "durationMs": 0.7
+            },
+            {
+              "testId": "BU12",
+              "status": "passed",
+              "durationMs": 0.3
+            },
+            {
+              "testId": "BU13",
+              "status": "passed",
+              "durationMs": 90.2
+            },
+            {
+              "testId": "BU14",
+              "status": "passed",
+              "durationMs": 83.1
+            },
+            {
+              "testId": "BU15",
+              "status": "passed",
+              "durationMs": 41.7
+            },
+            {
+              "testId": "BU16",
+              "status": "passed",
+              "durationMs": 47.7
+            },
+            {
+              "testId": "BU17",
+              "status": "passed",
+              "durationMs": 83.1
+            },
+            {
+              "testId": "BU2",
+              "status": "passed",
+              "durationMs": 84.5
+            },
+            {
+              "testId": "BU3",
+              "status": "passed",
+              "durationMs": 38.7
+            },
+            {
+              "testId": "BU4",
+              "status": "passed",
+              "durationMs": 45.7
+            },
+            {
+              "testId": "BU5",
+              "status": "passed",
+              "durationMs": 42.8
+            },
+            {
+              "testId": "BU6",
+              "status": "passed",
+              "durationMs": 95.9
+            },
+            {
+              "testId": "BU7",
+              "status": "passed",
+              "durationMs": 0.2
+            },
+            {
+              "testId": "BU8",
+              "status": "passed",
+              "durationMs": 44
+            },
+            {
+              "testId": "BU9",
+              "status": "passed",
+              "durationMs": 1.7
+            },
+            {
+              "testId": "C1",
+              "status": "passed",
+              "durationMs": 73.8
+            },
+            {
+              "testId": "C2",
+              "status": "passed",
+              "durationMs": 4.2
+            },
+            {
+              "testId": "C3",
+              "status": "passed",
+              "durationMs": 4.1
+            },
+            {
+              "testId": "C4",
+              "status": "failed",
+              "durationMs": 177,
+              "output": "AssertionError: expected { email: 'Demo@EXAMPLE.COM', …(1) } to deeply equal { email: 'demo@example.com', …(1) }\n    at <overlay>/apps/frontend/src/components/LoginForm.test.tsx:29:63\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "C5",
+              "status": "passed",
+              "durationMs": 58.4
+            },
+            {
+              "testId": "C6",
+              "status": "passed",
+              "durationMs": 13.5
+            },
+            {
+              "testId": "C7",
+              "status": "passed",
+              "durationMs": 76.9
+            },
+            {
+              "testId": "C8",
+              "status": "passed",
+              "durationMs": 85.1
+            },
+            {
+              "testId": "CT1",
+              "status": "passed",
+              "durationMs": 74.7
+            },
+            {
+              "testId": "CT2",
+              "status": "passed",
+              "durationMs": 42.9
+            },
+            {
+              "testId": "CT3",
+              "status": "passed",
+              "durationMs": 3.8
+            },
+            {
+              "testId": "E1",
+              "status": "passed",
+              "durationMs": 782
+            },
+            {
+              "testId": "FU1",
+              "status": "failed",
+              "durationMs": 4.6,
+              "output": "AssertionError: expected 'Demo@EXAMPLE.COM' to be 'demo@example.com' // Object.is equality\n    at <overlay>/apps/frontend/src/auth/normalizeEmail.test.ts:5:49\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3301:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3259:10)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3882:64"
+            },
+            {
+              "testId": "FU2",
+              "status": "failed",
+              "durationMs": 6.4,
+              "output": "AssertionError: expected { email: 'Demo@EXAMPLE.COM', …(1) } to deeply equal { email: 'demo@example.com', …(1) }\n    at <overlay>/apps/frontend/src/auth/buildLoginRequest.test.ts:5:68\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3301:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3259:10)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3882:64"
+            },
+            {
+              "testId": "FU3",
+              "status": "passed",
+              "durationMs": 2.4
+            },
+            {
+              "testId": "FU4",
+              "status": "passed",
+              "durationMs": 35.8
+            },
+            {
+              "testId": "I1",
+              "status": "passed",
+              "durationMs": 74.7
+            },
+            {
+              "testId": "I2",
+              "status": "passed",
+              "durationMs": 46.4
+            },
+            {
+              "testId": "I3",
+              "status": "passed",
+              "durationMs": 4.4
+            },
+            {
+              "testId": "I4",
+              "status": "passed",
+              "durationMs": 3.1
+            },
+            {
+              "testId": "I5",
+              "status": "passed",
+              "durationMs": 2.8
+            },
+            {
+              "testId": "I6",
+              "status": "passed",
+              "durationMs": 5.2
+            }
+          ]
+        }
+      }
+    },
+    "domain": {
+      "title": "Change User.authenticate()",
+      "runs": {
+        "selected": {
+          "runnerDurationMs": 11300,
+          "waitVisibleMs": 17500,
+          "results": [
+            {
+              "testId": "BU1",
+              "status": "passed",
+              "durationMs": 78
+            },
+            {
+              "testId": "BU2",
+              "status": "passed",
+              "durationMs": 73.5
+            },
+            {
+              "testId": "BU3",
+              "status": "failed",
+              "durationMs": 40.4,
+              "output": "AssertionError: expected 'invalid-credentials' to be 'locked' // Object.is equality\n    at <overlay>/apps/backend/src/auth/domain/User.test.ts:18:45\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "BU6",
+              "status": "passed",
+              "durationMs": 77.6
+            },
+            {
+              "testId": "BU8",
+              "status": "failed",
+              "durationMs": 41,
+              "output": "AssertionError: expected { kind: 'invalid-credentials' } to deeply equal { kind: 'locked' }\n    at <overlay>/apps/backend/src/auth/application/AuthenticateUser.test.ts:25:90\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "CT1",
+              "status": "passed",
+              "durationMs": 56.2
+            },
+            {
+              "testId": "CT2",
+              "status": "passed",
+              "durationMs": 39.4
+            },
+            {
+              "testId": "CT3",
+              "status": "passed",
+              "durationMs": 3.4
+            },
+            {
+              "testId": "E1",
+              "status": "passed",
+              "durationMs": 746
+            },
+            {
+              "testId": "I1",
+              "status": "passed",
+              "durationMs": 56.1
+            },
+            {
+              "testId": "I2",
+              "status": "passed",
+              "durationMs": 39.2
+            },
+            {
+              "testId": "I4",
+              "status": "failed",
+              "durationMs": 6.6,
+              "output": "AssertionError: expected 404 to be 403 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:29:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "I6",
+              "status": "passed",
+              "durationMs": 5.8
+            }
+          ]
+        },
+        "full": {
+          "runnerDurationMs": 22200,
+          "waitVisibleMs": 27500,
+          "results": [
+            {
+              "testId": "BU1",
+              "status": "passed",
+              "durationMs": 94
+            },
+            {
+              "testId": "BU10",
+              "status": "passed",
+              "durationMs": 1.4
+            },
+            {
+              "testId": "BU11",
+              "status": "passed",
+              "durationMs": 0.7
+            },
+            {
+              "testId": "BU12",
+              "status": "passed",
+              "durationMs": 0.1
+            },
+            {
+              "testId": "BU13",
+              "status": "passed",
+              "durationMs": 92.5
+            },
+            {
+              "testId": "BU14",
+              "status": "passed",
+              "durationMs": 85.6
+            },
+            {
+              "testId": "BU15",
+              "status": "passed",
+              "durationMs": 41.6
+            },
+            {
+              "testId": "BU16",
+              "status": "passed",
+              "durationMs": 53.6
+            },
+            {
+              "testId": "BU17",
+              "status": "passed",
+              "durationMs": 86
+            },
+            {
+              "testId": "BU2",
+              "status": "passed",
+              "durationMs": 78.5
+            },
+            {
+              "testId": "BU3",
+              "status": "failed",
+              "durationMs": 44.7,
+              "output": "AssertionError: expected 'invalid-credentials' to be 'locked' // Object.is equality\n    at <overlay>/apps/backend/src/auth/domain/User.test.ts:18:45\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "BU4",
+              "status": "passed",
+              "durationMs": 43.4
+            },
+            {
+              "testId": "BU5",
+              "status": "passed",
+              "durationMs": 49.2
+            },
+            {
+              "testId": "BU6",
+              "status": "passed",
+              "durationMs": 92
+            },
+            {
+              "testId": "BU7",
+              "status": "passed",
+              "durationMs": 0.2
+            },
+            {
+              "testId": "BU8",
+              "status": "failed",
+              "durationMs": 52.2,
+              "output": "AssertionError: expected { kind: 'invalid-credentials' } to deeply equal { kind: 'locked' }\n    at <overlay>/apps/backend/src/auth/application/AuthenticateUser.test.ts:25:90\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "BU9",
+              "status": "passed",
+              "durationMs": 0.9
+            },
+            {
+              "testId": "C1",
+              "status": "passed",
+              "durationMs": 73.8
+            },
+            {
+              "testId": "C2",
+              "status": "passed",
+              "durationMs": 3.8
+            },
+            {
+              "testId": "C3",
+              "status": "passed",
+              "durationMs": 3.5
+            },
+            {
+              "testId": "C4",
+              "status": "passed",
+              "durationMs": 167.1
+            },
+            {
+              "testId": "C5",
+              "status": "passed",
+              "durationMs": 50.9
+            },
+            {
+              "testId": "C6",
+              "status": "passed",
+              "durationMs": 14.1
+            },
+            {
+              "testId": "C7",
+              "status": "passed",
+              "durationMs": 74.4
+            },
+            {
+              "testId": "C8",
+              "status": "passed",
+              "durationMs": 80
+            },
+            {
+              "testId": "CT1",
+              "status": "passed",
+              "durationMs": 66.2
+            },
+            {
+              "testId": "CT2",
+              "status": "passed",
+              "durationMs": 45.8
+            },
+            {
+              "testId": "CT3",
+              "status": "passed",
+              "durationMs": 3.6
+            },
+            {
+              "testId": "E1",
+              "status": "passed",
+              "durationMs": 818
+            },
+            {
+              "testId": "FU1",
+              "status": "passed",
+              "durationMs": 1.3
+            },
+            {
+              "testId": "FU2",
+              "status": "passed",
+              "durationMs": 1.7
+            },
+            {
+              "testId": "FU3",
+              "status": "passed",
+              "durationMs": 1.6
+            },
+            {
+              "testId": "FU4",
+              "status": "passed",
+              "durationMs": 45
+            },
+            {
+              "testId": "I1",
+              "status": "passed",
+              "durationMs": 68.5
+            },
+            {
+              "testId": "I2",
+              "status": "passed",
+              "durationMs": 45.8
+            },
+            {
+              "testId": "I3",
+              "status": "passed",
+              "durationMs": 4.6
+            },
+            {
+              "testId": "I4",
+              "status": "failed",
+              "durationMs": 7.7,
+              "output": "AssertionError: expected 404 to be 403 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:29:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "I5",
+              "status": "passed",
+              "durationMs": 3.8
+            },
+            {
+              "testId": "I6",
+              "status": "passed",
+              "durationMs": 4.9
+            }
+          ]
+        }
+      }
+    },
+    "contract": {
+      "title": "Change POST /login contract",
+      "runs": {
+        "selected": {
+          "runnerDurationMs": 26800,
+          "waitVisibleMs": 32600,
+          "results": [
+            {
+              "testId": "BU1",
+              "status": "passed",
+              "durationMs": 85.4
+            },
+            {
+              "testId": "BU10",
+              "status": "passed",
+              "durationMs": 1.3
+            },
+            {
+              "testId": "BU11",
+              "status": "passed",
+              "durationMs": 0.7
+            },
+            {
+              "testId": "BU12",
+              "status": "passed",
+              "durationMs": 0.1
+            },
+            {
+              "testId": "BU13",
+              "status": "passed",
+              "durationMs": 96
+            },
+            {
+              "testId": "BU14",
+              "status": "passed",
+              "durationMs": 84
+            },
+            {
+              "testId": "BU15",
+              "status": "passed",
+              "durationMs": 40.7
+            },
+            {
+              "testId": "BU16",
+              "status": "passed",
+              "durationMs": 48.2
+            },
+            {
+              "testId": "BU17",
+              "status": "passed",
+              "durationMs": 92
+            },
+            {
+              "testId": "BU2",
+              "status": "passed",
+              "durationMs": 87
+            },
+            {
+              "testId": "BU3",
+              "status": "passed",
+              "durationMs": 45.9
+            },
+            {
+              "testId": "BU6",
+              "status": "passed",
+              "durationMs": 93.7
+            },
+            {
+              "testId": "BU8",
+              "status": "passed",
+              "durationMs": 45.2
+            },
+            {
+              "testId": "C4",
+              "status": "passed",
+              "durationMs": 166.9
+            },
+            {
+              "testId": "C5",
+              "status": "passed",
+              "durationMs": 61.9
+            },
+            {
+              "testId": "C7",
+              "status": "passed",
+              "durationMs": 81
+            },
+            {
+              "testId": "C8",
+              "status": "passed",
+              "durationMs": 81.2
+            },
+            {
+              "testId": "CT1",
+              "status": "failed",
+              "durationMs": 22.2,
+              "output": "AssertionError: expected 404 to be 200 // Object.is equality\n    at <overlay>/tests/contract/login.test.ts:14:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "CT2",
+              "status": "failed",
+              "durationMs": 2.9,
+              "output": "AssertionError: expected 404 to be 401 // Object.is equality\n    at <overlay>/tests/contract/login.test.ts:28:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "CT3",
+              "status": "failed",
+              "durationMs": 4.8,
+              "output": "AssertionError: expected 404 to be 400 // Object.is equality\n    at <overlay>/tests/contract/login.test.ts:40:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "E1",
+              "status": "failed",
+              "durationMs": 5544,
+              "output": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByRole('alert')\nExpected: \"Invalid email or password.\"\nReceived: \"Failed to execute 'json' on 'Response': Unexpected end of JSON input\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveText\" getByRole('alert') with timeout 5000ms\n  - waiting for getByRole('alert')\n    14 × locator resolved to <p role=\"alert\">Failed to execute 'json' on 'Response': Unexpecte…</p>\n       - unexpected value \"Failed to execute 'json' on 'Response': Unexpected end of JSON input\"\n\n\n   6 |   await page.getByLabel('Password').fill('wrong');\n   7 |   await page.getByRole('button', { name: 'Sign in' }).click();\n>  8 |   await expect(page.getByRole('alert')).toHaveText('Invalid email or password.');\n     |                                         ^\n   9 |   await expect(page).toHaveURL('/');\n  10 |   await page.getByLabel('Password').fill('impact-demo');\n  11 |   await page.getByRole('button', { name: 'Sign in' }).click();\n    at <overlay>/tests/e2e/login.spec.ts:8:41"
+            },
+            {
+              "testId": "FU1",
+              "status": "passed",
+              "durationMs": 1.3
+            },
+            {
+              "testId": "FU2",
+              "status": "passed",
+              "durationMs": 2.5
+            },
+            {
+              "testId": "FU4",
+              "status": "passed",
+              "durationMs": 43.5
+            },
+            {
+              "testId": "I1",
+              "status": "failed",
+              "durationMs": 22.2,
+              "output": "AssertionError: expected 404 to be 200 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:11:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "I2",
+              "status": "failed",
+              "durationMs": 2.4,
+              "output": "AssertionError: expected 404 to be 401 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:17:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "I4",
+              "status": "failed",
+              "durationMs": 2.9,
+              "output": "AssertionError: expected 404 to be 403 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:29:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "I5",
+              "status": "failed",
+              "durationMs": 2.9,
+              "output": "AssertionError: expected 404 to be 400 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:35:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "I6",
+              "status": "failed",
+              "durationMs": 4.8,
+              "output": "AssertionError: expected 404 to be 500 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:44:29\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            }
+          ]
+        },
+        "full": {
+          "runnerDurationMs": 26600,
+          "waitVisibleMs": 32299.999999999996,
+          "results": [
+            {
+              "testId": "BU1",
+              "status": "passed",
+              "durationMs": 91.6
+            },
+            {
+              "testId": "BU10",
+              "status": "passed",
+              "durationMs": 1.4
+            },
+            {
+              "testId": "BU11",
+              "status": "passed",
+              "durationMs": 0.7
+            },
+            {
+              "testId": "BU12",
+              "status": "passed",
+              "durationMs": 0.1
+            },
+            {
+              "testId": "BU13",
+              "status": "passed",
+              "durationMs": 88.6
+            },
+            {
+              "testId": "BU14",
+              "status": "passed",
+              "durationMs": 90.2
+            },
+            {
+              "testId": "BU15",
+              "status": "passed",
+              "durationMs": 46.5
+            },
+            {
+              "testId": "BU16",
+              "status": "passed",
+              "durationMs": 43.7
+            },
+            {
+              "testId": "BU17",
+              "status": "passed",
+              "durationMs": 89.4
+            },
+            {
+              "testId": "BU2",
+              "status": "passed",
+              "durationMs": 85
+            },
+            {
+              "testId": "BU3",
+              "status": "passed",
+              "durationMs": 42.2
+            },
+            {
+              "testId": "BU4",
+              "status": "passed",
+              "durationMs": 43.1
+            },
+            {
+              "testId": "BU5",
+              "status": "passed",
+              "durationMs": 47.4
+            },
+            {
+              "testId": "BU6",
+              "status": "passed",
+              "durationMs": 86.8
+            },
+            {
+              "testId": "BU7",
+              "status": "passed",
+              "durationMs": 0.2
+            },
+            {
+              "testId": "BU8",
+              "status": "passed",
+              "durationMs": 50.5
+            },
+            {
+              "testId": "BU9",
+              "status": "passed",
+              "durationMs": 1
+            },
+            {
+              "testId": "C1",
+              "status": "passed",
+              "durationMs": 74.7
+            },
+            {
+              "testId": "C2",
+              "status": "passed",
+              "durationMs": 3.5
+            },
+            {
+              "testId": "C3",
+              "status": "passed",
+              "durationMs": 3.8
+            },
+            {
+              "testId": "C4",
+              "status": "passed",
+              "durationMs": 180.8
+            },
+            {
+              "testId": "C5",
+              "status": "passed",
+              "durationMs": 57.9
+            },
+            {
+              "testId": "C6",
+              "status": "passed",
+              "durationMs": 13.4
+            },
+            {
+              "testId": "C7",
+              "status": "passed",
+              "durationMs": 75.5
+            },
+            {
+              "testId": "C8",
+              "status": "passed",
+              "durationMs": 78.8
+            },
+            {
+              "testId": "CT1",
+              "status": "failed",
+              "durationMs": 29.1,
+              "output": "AssertionError: expected 404 to be 200 // Object.is equality\n    at <overlay>/tests/contract/login.test.ts:14:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "CT2",
+              "status": "failed",
+              "durationMs": 2.7,
+              "output": "AssertionError: expected 404 to be 401 // Object.is equality\n    at <overlay>/tests/contract/login.test.ts:28:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "CT3",
+              "status": "failed",
+              "durationMs": 6.7,
+              "output": "AssertionError: expected 404 to be 400 // Object.is equality\n    at <overlay>/tests/contract/login.test.ts:40:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "E1",
+              "status": "failed",
+              "durationMs": 5526,
+              "output": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByRole('alert')\nExpected: \"Invalid email or password.\"\nReceived: \"Failed to execute 'json' on 'Response': Unexpected end of JSON input\"\nTimeout:  5000ms\n\nCall log:\n  - Expect \"toHaveText\" getByRole('alert') with timeout 5000ms\n  - waiting for getByRole('alert')\n    14 × locator resolved to <p role=\"alert\">Failed to execute 'json' on 'Response': Unexpecte…</p>\n       - unexpected value \"Failed to execute 'json' on 'Response': Unexpected end of JSON input\"\n\n\n   6 |   await page.getByLabel('Password').fill('wrong');\n   7 |   await page.getByRole('button', { name: 'Sign in' }).click();\n>  8 |   await expect(page.getByRole('alert')).toHaveText('Invalid email or password.');\n     |                                         ^\n   9 |   await expect(page).toHaveURL('/');\n  10 |   await page.getByLabel('Password').fill('impact-demo');\n  11 |   await page.getByRole('button', { name: 'Sign in' }).click();\n    at <overlay>/tests/e2e/login.spec.ts:8:41"
+            },
+            {
+              "testId": "FU1",
+              "status": "passed",
+              "durationMs": 1.3
+            },
+            {
+              "testId": "FU2",
+              "status": "passed",
+              "durationMs": 1.9
+            },
+            {
+              "testId": "FU3",
+              "status": "passed",
+              "durationMs": 1.5
+            },
+            {
+              "testId": "FU4",
+              "status": "passed",
+              "durationMs": 43.9
+            },
+            {
+              "testId": "I1",
+              "status": "failed",
+              "durationMs": 25.1,
+              "output": "AssertionError: expected 404 to be 200 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:11:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "I2",
+              "status": "failed",
+              "durationMs": 4.2,
+              "output": "AssertionError: expected 404 to be 401 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:17:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "I3",
+              "status": "failed",
+              "durationMs": 4.5,
+              "output": "AssertionError: expected 404 to be 401 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:23:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "I4",
+              "status": "failed",
+              "durationMs": 3.8,
+              "output": "AssertionError: expected 404 to be 403 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:29:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "I5",
+              "status": "failed",
+              "durationMs": 7.1,
+              "output": "AssertionError: expected 404 to be 400 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:35:27\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            },
+            {
+              "testId": "I6",
+              "status": "failed",
+              "durationMs": 12.6,
+              "output": "AssertionError: expected 404 to be 500 // Object.is equality\n    at <overlay>/tests/integration/login.test.ts:44:29\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at file://<overlay>/node_modules/.pnpm/vitest@5.0.3_@types+node@26.6.4_jsdom@30.1.1_vite@8.3.2_@types+node@26.6.4_esbuild@0.28.2_tsx@4.23.15_/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:20"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

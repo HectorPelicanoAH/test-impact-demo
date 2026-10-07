@@ -51,6 +51,8 @@ export interface DemoExecution {
   completedAt?: string;
   durationMs?: number;
   error?: string;
+  recordedJourney?: string;
+  elapsedMs?: number;
 }
 
 export interface DemoExecutionRequest {
