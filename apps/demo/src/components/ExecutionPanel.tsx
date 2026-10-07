@@ -22,7 +22,7 @@ function RunCard({ execution, onInspect }: { execution: DemoExecution; onInspect
     {execution.error && <pre>{execution.error}</pre>}
     <div className="run-results">{execution.results.map(result => <div className={result.status} key={result.testId}>
       <i /><b>{result.testId}</b><button className="run-inspect" onClick={() => onInspect(result.testId)}>{result.name} · VIEW TEST ↗</button><small>{result.status.toUpperCase()} · {duration(result.durationMs)}</small>
-      {result.output && <details><summary>OUTPUT</summary><pre>{result.output}</pre></details>}
+      {result.output && result.status === 'failed' && <details><summary>OUTPUT</summary><pre>{result.output}</pre></details>}
     </div>)}</div>
   </article>;
 }
