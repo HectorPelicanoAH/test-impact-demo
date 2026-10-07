@@ -154,7 +154,10 @@ export async function executeTests(input: RunInput): Promise<DemoExecution> {
   };
   const simulatedDelay = (kind: TestMetadata['kind']) => kind === 'e2e' ? 260 : 90;
   const randomDuration = (kind: TestMetadata['kind']) => {
-    const [minimum, maximum] = ranges[kind];
+    // Keep the narrowing explicit: noUncheckedIndexedAccess makes indexed
+    // tuple members potentially undefined, even though every supported kind
+    // is covered by `ranges`.
+    const [minimum, maximum] = ranges[kind] ?? [0, 0];
     return Math.round(minimum + Math.random() * (maximum - minimum));
   };
   const started = performance.now();
